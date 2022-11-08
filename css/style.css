@@ -3,6 +3,7 @@
 * {
    padding: 0;
    margin: 0;
+   box-sizing: border-box;
    font-family: "Ubuntu", sans-serif;
 }
 
@@ -25,12 +26,21 @@ header{
    top: 0;
    background-color: #fff;
    width: 100vw;
+   
 }
-
-header input {
+#city-input {
    padding: 0.8rem;
    flex: 1;
    border-radius: 4px;
+}
+
+@media (max-width: 700px){
+   #city-input{
+      position: absolute;
+      top: 8vh;
+      left: 0;
+      width: 100vw;
+   }
 }
 
 header button {
@@ -45,6 +55,7 @@ header button {
 }
 
 .content{
+   height: 8vh;
    display: flex;
    padding: 1rem;
    align-items: center;
@@ -179,3 +190,6 @@ footer{
 
 /* Media query */
 
+@media (max-width: 700px){
+   
+}
