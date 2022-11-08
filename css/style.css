@@ -12,14 +12,52 @@ body {
    justify-content: center;
    align-items: center;
    height: 100vh;
+   flex-direction: column;
 
    background-position: center;
    background-size: cover;
 }
 
+/* Header */
+
+header{
+   position: absolute;
+   top: 0;
+   background-color: #fff;
+   width: 100vw;
+}
+
+header input {
+   padding: 0.8rem;
+   flex: 1;
+   border-radius: 4px;
+}
+
+header button {
+   padding: 0.8rem;
+   min-width: 50px;
+   margin-left: 8px;
+   background-color: #8dd0f5;
+   color: #fff;
+   border: none;
+   cursor: pointer;
+   border-radius: 4px;
+}
+
+.content{
+   display: flex;
+   padding: 1rem;
+   align-items: center;
+   justify-content: space-between;
+   max-width: 1200px;
+   margin: auto;
+   gap: 2rem;
+}
+
 .hide {
    display: none !important;
 }
+
 .center{
    display: flex;
    align-items: center;
@@ -46,31 +84,13 @@ body {
    display: flex;
 }
 
-.form input {
-   padding: 0.8rem;
-   border: none;
-   flex: 1;
-   border-radius: 4px;
-}
-
-.form button {
-   padding: 0.8rem;
-   min-width: 50px;
-   margin-left: 8px;
-   background-color: #8dd0f5;
-   color: #fff;
-   border: none;
-   cursor: pointer;
-   border-radius: 4px;
-}
-
 /* Sugestões */
 
 #suggestions{
    display: grid;
    justify-content: space-between;
    gap: 2rem;
-   grid-template-columns: repeat(3, 100px);
+   grid-template-columns: repeat(2, 100px);
 }
 #suggestions button{
    padding: 0.5rem;
@@ -127,8 +147,17 @@ body {
    font-weight: bold;
 }
 
-#details-container #humidity {
-   border-right: 1px solid #fff;
+#details-container{
+   display: flex;
+   flex-direction: column;
+}
+#details-container div{
+   display: flex;
+   align-items: center;
+   justify-content: space-between;
+   gap: 3rem;
+   width: 250px;
+   border-top: 1px solid rgba(255, 255, 255, 0.432);
    margin: 0.6rem;
    padding: 0.6rem;
 }
@@ -141,3 +170,12 @@ body {
    padding: 1.5rem;
    text-align: center;
 }
+
+footer{
+   position: absolute;
+   bottom: 0;
+   padding: 2rem;
+}
+
+/* Media query */
+

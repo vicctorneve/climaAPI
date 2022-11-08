@@ -78,16 +78,20 @@ const hideInformations = () =>{
 
 searchBtn.addEventListener('click', (e) =>{
    e.preventDefault();
-   const city = cityInput.value;
-   showWeatherData(city);
-   cleanInput()
+   if(cityInput.value !== ""){
+      const city = cityInput.value;
+      showWeatherData(city);
+      cleanInput()
+   }
 })
 
 cityInput.addEventListener('keyup', (e) =>{
    if(e.code === "Enter"){
-      const city = e.target.value;
-      showWeatherData(city);
-      cleanInput()
+      if(e.target.value !== ""){
+         const city = e.target.value;
+         showWeatherData(city);
+         cleanInput()
+      }
    }
 })
 

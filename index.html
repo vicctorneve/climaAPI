@@ -15,16 +15,17 @@
    <script src="js/script.js" defer></script>
 </head>
 <body>
-   <div class="container">
-      <div class="form">
-         <h3>Confira o clima de uma cidade:</h3>
-         <div class="form-input-container">
-            <input type="text" placeholder="Digite o nome da cidade" id="city-input">
-            <button id="search">
-              <i class="fa-solid fa-magnifying-glass"></i> 
-            </button>
-         </div>
+   <header>
+      <div class="content">
+         <h1>CLIMAHOJE</h1>
+         <input type="text" placeholder="Digite o nome da cidade" id="city-input">
+         <button id="search">
+            <i class="fa-solid fa-magnifying-glass"></i> 
+          </button> 
       </div>
+   </header>
+   <div class="container">
+      <h3>Confira o clima de uma cidade...</h3>
       <div id="weather-data" class="hide">
          <h2 class="center">
             <i class="fa-solid fa-location-dot"></i>
@@ -41,14 +42,21 @@
             <img src="" alt="Condições do tempo" id="weather-icon">
          </div>
          <div class="center" id="details-container">
-            <p id="humidity">
-               <i class="fa-solid fa-droplet"></i>
-               <span></span>
-            </p>
-            <p id="wind">
-               <i class="fa-solid fa-wind"></i>
-               <span></span>
-            </p>
+            <div class="container-wind">
+               <p>Vento</p>
+               <p id="wind">
+                  <i class="fa-solid fa-wind"></i>
+                  <span></span>
+               </p>
+            </div>
+            <div class="container-humidity">
+               <p>Umidade</p>
+               <p id="humidity">
+                  <i class="fa-solid fa-droplet"></i>
+                  <span></span>
+               </p>
+            </div>
+            
          </div>
       </div>
       <div class="container-error hide">
@@ -66,5 +74,8 @@
          <button>Londres</button>
       </div>
    </div>
+   <footer>
+      <p>@2022 from Vicctor Neves</p>
+   </footer>
 </body>
 </html>
