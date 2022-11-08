@@ -81,18 +81,12 @@ header button {
    padding: 2rem;
    color: #fdfdfd;
    border-radius: 1rem;
-   max-width: 400px;
+   max-width: 350px;
 }
 
-/* Form */
-
-.form h3 {
+h3 {
    text-align: center;
    margin-bottom: 1rem;
-}
-
-.form-input-container {
-   display: flex;
 }
 
 /* Sugestões */
