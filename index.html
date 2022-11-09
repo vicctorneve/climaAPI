@@ -13,68 +13,72 @@
    <!-- Font Awesome -->
    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.0/css/all.min.css" integrity="sha512-xh6O/CkQoPOWDdYTDqeRdPCVd1SpvCA9XXcUnZS2FmJNp1coAFzvtCN9BmamE+4aHK8yyUHUSCcJHgXloTyT2A==" crossorigin="anonymous" referrerpolicy="no-referrer" />
    <script src="js/script.js" defer></script>
+   <script src="js/localication.js" defer></script>
 </head>
 <body>
    <header>
       <div class="content">
          <h1>CLIMAHOJE</h1>
-         <input type="text" placeholder="Digite o nome da cidade" id="city-input">
-         <button id="search">
-            <i class="fa-solid fa-magnifying-glass"></i> 
-          </button> 
-          
+         <div class="container-input">
+            <input type="text" placeholder="Digite o nome da cidade" id="city-input">
+            <button id="search">
+               <i class="fa-solid fa-magnifying-glass"></i> 
+            </button> 
+         </div>
       </div>
    </header>
-   <div class="container">
-      <h3>Confira o clima de uma cidade...</h3>
-      <div id="weather-data" class="hide">
-         <h2 class="center">
-            <i class="fa-solid fa-location-dot"></i>
-            <span id="city"></span>
-            <img 
-               id="country" 
-               src="" 
-               alt="Bandeira do país"
-            />
-         </h2>
-         <p id="temperature"><span></span>&deg;C</p>
-         <div class="center" id="description-container">
-            <p id="description"></p>
-            <img src="" alt="Condições do tempo" id="weather-icon">
-         </div>
-         <div class="center" id="details-container">
-            <div class="container-wind">
-               <p>Vento</p>
-               <p id="wind">
-                  <i class="fa-solid fa-wind"></i>
-                  <span></span>
-               </p>
+   <main>
+      <div class="container">
+         <h3>Confira o clima de uma cidade...</h3>
+         <div id="weather-data" class="hide">
+            <h2 class="center">
+               <i class="fa-solid fa-location-dot"></i>
+               <span id="city"></span>
+               <!-- <img 
+                  id="country" 
+                  src="" 
+                  alt="Bandeira do país"
+               /> -->
+            </h2>
+            <p id="temperature"><span></span>&deg;C</p>
+            <div class="center" id="description-container">
+               <p id="description"></p>
+               <img src="" alt="Condições do tempo" id="weather-icon">
             </div>
-            <div class="container-humidity">
-               <p>Umidade</p>
-               <p id="humidity">
-                  <i class="fa-solid fa-droplet"></i>
-                  <span></span>
-               </p>
+            <div class="center" id="details-container">
+               <div class="container-wind">
+                  <p>Vento</p>
+                  <p id="wind">
+                     <i class="fa-solid fa-wind"></i>
+                     <span></span>
+                  </p>
+               </div>
+               <div class="container-humidity">
+                  <p>Umidade</p>
+                  <p id="humidity">
+                     <i class="fa-solid fa-droplet"></i>
+                     <span></span>
+                  </p>
+               </div>
+               
             </div>
-            
+         </div>
+         <div class="container-error hide">
+            <p>Não foi possivel encontrar o clima de uma cidade com este nome</p>
+         </div>
+         <div class="hide" id="loader">
+            <i class="fa-solid fa-spinner fa-spin-pulse"></i>
+         </div>
+         <div class="" id="suggestions">
+            <button>Esplanada</button>
+            <button>Nova york</button>
+            <button>Tokyo</button>
+            <button>Florida</button>
+            <button>Las vegas</button>
+            <button>Londres</button>
          </div>
       </div>
-      <div class="container-error hide">
-         <p>Não foi possivel encontrar o clima de uma cidade com este nome</p>
-      </div>
-      <div class="hide" id="loader">
-         <i class="fa-solid fa-spinner fa-spin-pulse"></i>
-      </div>
-      <div class="" id="suggestions">
-         <button>Esplanada</button>
-         <button>Nova york</button>
-         <button>Tokyo</button>
-         <button>Florida</button>
-         <button>Las vegas</button>
-         <button>Londres</button>
-      </div>
-   </div>
+   </main>
    <footer>
       <p>@2022 from Vicctor Neves</p>
    </footer>

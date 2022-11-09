@@ -10,36 +10,49 @@
 body {
    background: linear-gradient(180deg, #4c8dee 0%, #8dd0f5 100%);
    display: flex;
-   justify-content: center;
-   align-items: center;
    height: 100vh;
    flex-direction: column;
-
-   background-position: center;
+   background-image: url(../assets/img/limpo.jpg);
+   background-repeat: no-repeat;
    background-size: cover;
 }
 
 /* Header */
 
 header{
-   position: absolute;
-   top: 0;
-   background-color: #fff;
+   color: #ffffff;
+   background-color: #57addb;
    width: 100vw;
-   
 }
+
+#menu{
+   display: none;
+   cursor: pointer;
+}
+
 #city-input {
+   width: 50vw;
    padding: 0.8rem;
    flex: 1;
    border-radius: 4px;
 }
 
 @media (max-width: 700px){
-   #city-input{
+   .container-input{
       position: absolute;
       top: 8vh;
       left: 0;
+      padding: 10px;
+      display: flex;
+      border-top: 1px solid rgba(0, 0, 0, 0.452);
+      background-color: #57addbd0;
       width: 100vw;
+
+   }
+   #city-input{
+      width: 90vw;
+      
+
    }
 }
 
@@ -52,6 +65,13 @@ header button {
    border: none;
    cursor: pointer;
    border-radius: 4px;
+}
+
+main{
+   display: flex;
+   align-items: center;
+   justify-content: center;
+   height: 82vh;
 }
 
 .content{
@@ -80,6 +100,7 @@ header button {
    box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
    padding: 2rem;
    color: #fdfdfd;
+   margin-top: 3rem;
    border-radius: 1rem;
    max-width: 350px;
 }
@@ -177,13 +198,17 @@ h3 {
 }
 
 footer{
-   position: absolute;
-   bottom: 0;
+   text-align: center;
    padding: 2rem;
+   height: 10vh;
+   width: 100vw;
 }
 
 /* Media query */
 
 @media (max-width: 700px){
+   #menu{
+      display: block;
+   }
    
 }
