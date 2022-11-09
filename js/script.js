@@ -1,10 +1,11 @@
 // Variaveis e seleção de elementos
 const apiKey = "86a41a83aad096c8374353b242de9087";
-const apiCountryURL = "https://countryflagsapi.com/png/";
+// const apiCountryURL = "https://countryflagsapi.com/png/";
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
 const weatherContainer = document.querySelector("#weather-data");
+
 const cityElement = document.querySelector("#city");
 const tempElement = document.querySelector("#temperature span");
 const descElement = document.querySelector("#description");
@@ -15,7 +16,6 @@ const windElement = document.querySelector("#wind span");
 
 const containerError = document.querySelector(".container-error")
 const loader = document.querySelector("#loader");
-
 
 const suggestionsContainer = document.querySelector("#suggestions");
 const suggestionsBtns = document.querySelectorAll("#suggestions button");
@@ -42,8 +42,9 @@ const showWeatherData = async(city) =>{
    const data = await getWeatherData(city);
    if(data.cod === "404"){
       showErrorMenssage()
-      return;
+      return
    }
+   addBgClima(data)
    removeClass();
    cityElement.innerText = data.name;
    tempElement.innerHTML = parseInt(data.main.temp);
@@ -52,10 +53,10 @@ const showWeatherData = async(city) =>{
       "src",
       `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
    );
-   countryElement.setAttribute(
-      'src',
-      apiCountryURL + data.sys.country
-   )
+   // countryElement.setAttribute(
+   //    'src',
+   //    apiCountryURL + data.sys.country
+   // )
    humidityElement.innerText = `${data.main.humidity}%`;
    windElement.innerText = `${data.wind.speed}km/h`;
 }
@@ -65,6 +66,12 @@ const removeClass = () => weatherContainer.classList.remove('hide');
 const cleanInput = () => cityInput.value = '';
 
 const toggleLoader = () => loader.classList.toggle("hide");
+
+const addBgClima = (data) =>{
+   if(data.weather[0].description = "nublado"){
+      document.body.style.backgroundImage = "url(../assets/img/ceu-nublado.webp)"
+   }
+}
 
 // Tratamento de erros
 const showErrorMenssage = () => containerError.classList.remove('hide');
@@ -81,7 +88,7 @@ searchBtn.addEventListener('click', (e) =>{
    if(cityInput.value !== ""){
       const city = cityInput.value;
       showWeatherData(city);
-      cleanInput()
+      cleanInput();
    }
 })
 
@@ -90,7 +97,7 @@ cityInput.addEventListener('keyup', (e) =>{
       if(e.target.value !== ""){
          const city = e.target.value;
          showWeatherData(city);
-         cleanInput()
+         cleanInput();
       }
    }
 })
