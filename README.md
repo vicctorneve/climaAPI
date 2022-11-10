@@ -2,7 +2,7 @@
 
 ## Sobre o projeto
 
-Projeto consumindo uma API publica - <a src="https://openweathermap.org">OpenWeathemap</a> - onde o usuário realiza busca do clima através do nome da cidade. Na tela inicial é possivel buscar o clima das cidades sugeridas.
+Projeto consumindo uma API publica - OpenWeathemap -> https://openweathermap.org - onde o usuário realiza busca do clima através do nome da cidade. Na tela inicial é possivel buscar o clima das cidades sugeridas.
 
 ## Previews
 
@@ -16,7 +16,7 @@ Projeto consumindo uma API publica - <a src="https://openweathermap.org">OpenWea
 - HTML
 - CSS
 - JAVASCRIPT
-- <a src="https://cdnjs.com/libraries/font-awesome"> Biblioteca font-awesome </a>
+- Biblioteca font-awesome -> https://cdnjs.com/libraries/font-awesome
 
 ## Status:
 
