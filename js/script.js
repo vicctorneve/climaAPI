@@ -1,5 +1,6 @@
 // Variaveis e seleção de elementos
 const apiKey = "86a41a83aad096c8374353b242de9087";
+let j = 0;
 // const apiCountryURL = "https://countryflagsapi.com/png/";
 
 const cityInput = document.querySelector("#city-input");
@@ -22,6 +23,7 @@ const loader = document.querySelector("#loader");
 
 const suggestionsContainer = document.querySelector("#suggestions");
 const suggestionsBtns = document.querySelectorAll("#suggestions button");
+const suggestionsList = [];
 
 // Funções
 
@@ -49,6 +51,7 @@ const showWeatherData = async(city) =>{
    }
    // addBgClima(data)
    removeClass();
+   cleanInput()
    cityElement.innerText = data.name;
    tempElement.innerHTML = parseInt(data.main.temp);
    descElement.innerText = data.weather[0].description;
@@ -98,7 +101,7 @@ searchBtn.addEventListener('click', function(e){
    if(cityInput.value !== ""){
       const city = cityInput.value;
       showWeatherData(city);
-      cleanInput();
+      
    }
 })
 
@@ -107,7 +110,6 @@ cityInput.addEventListener('keyup', function(e){
       if(e.target.value !== ""){
          const city = e.target.value;
          showWeatherData(city);
-         cleanInput();
       }
    }
 })
@@ -115,7 +117,6 @@ cityInput.addEventListener('keyup', function(e){
 suggestionsBtns.forEach( function(btn){
    btn.addEventListener("click", function(){
       const city = btn.innerHTML;
-
       showWeatherData(city);
    })
 })
