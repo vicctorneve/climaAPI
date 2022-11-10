@@ -69,7 +69,7 @@ const toggleLoader = () => loader.classList.toggle("hide");
 
 const addBgClima = (data) =>{
    if(data.weather[0].description = "nublado"){
-      document.body.style.backgroundImage = "url(../assets/img/ceu-nublado.webp)"
+      document.body.style.backgroundImage = "url(../assets/img/ceu-nublado.png)"
    }
 }
 
