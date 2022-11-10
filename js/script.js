@@ -86,6 +86,7 @@ const addBgClima = (data) =>{
 const showErrorMenssage = () =>{
    containerError.classList.remove('hide');
    containerBack.classList.remove('hide')
+   cleanInput()
 } 
 
 const hideInformations = () =>{
