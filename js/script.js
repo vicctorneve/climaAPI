@@ -6,6 +6,9 @@ const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
 const weatherContainer = document.querySelector("#weather-data");
 
+const containerBack = document.querySelector('.container-back');
+const btnBack = document.querySelector('#back');
+
 const cityElement = document.querySelector("#city");
 const tempElement = document.querySelector("#temperature span");
 const descElement = document.querySelector("#description");
@@ -44,7 +47,7 @@ const showWeatherData = async(city) =>{
       showErrorMenssage()
       return
    }
-   addBgClima(data)
+   // addBgClima(data)
    removeClass();
    cityElement.innerText = data.name;
    tempElement.innerHTML = parseInt(data.main.temp);
@@ -61,7 +64,10 @@ const showWeatherData = async(city) =>{
    windElement.innerText = `${data.wind.speed}km/h`;
 }
 
-const removeClass = () => weatherContainer.classList.remove('hide');
+const removeClass = () => {
+   weatherContainer.classList.remove('hide');
+   containerBack.classList.remove('hide')
+}
 
 const cleanInput = () => cityInput.value = '';
 
@@ -74,16 +80,20 @@ const addBgClima = (data) =>{
 }
 
 // Tratamento de erros
-const showErrorMenssage = () => containerError.classList.remove('hide');
+const showErrorMenssage = () =>{
+   containerError.classList.remove('hide');
+   containerBack.classList.remove('hide')
+} 
 
 const hideInformations = () =>{
    containerError.classList.add("hide");
    suggestionsContainer.classList.add('hide');
    weatherContainer.classList.add("hide");
+   containerBack.classList.add("hide");
 }
 // Eventos
 
-searchBtn.addEventListener('click', (e) =>{
+searchBtn.addEventListener('click', function(e){
    e.preventDefault();
    if(cityInput.value !== ""){
       const city = cityInput.value;
@@ -92,7 +102,7 @@ searchBtn.addEventListener('click', (e) =>{
    }
 })
 
-cityInput.addEventListener('keyup', (e) =>{
+cityInput.addEventListener('keyup', function(e){
    if(e.code === "Enter"){
       if(e.target.value !== ""){
          const city = e.target.value;
@@ -102,12 +112,19 @@ cityInput.addEventListener('keyup', (e) =>{
    }
 })
 
-suggestionsBtns.forEach((btn) =>{
+suggestionsBtns.forEach( function(btn){
    btn.addEventListener("click", function(){
       const city = btn.innerHTML;
 
       showWeatherData(city);
    })
+})
+
+btnBack.addEventListener('click', function(){
+   weatherContainer.classList.add('hide')
+   suggestionsContainer.classList.remove('hide')
+   containerError.classList.add('hide')
+   containerBack.classList.add('hide')
 })
 
 
