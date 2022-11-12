@@ -1,7 +1,6 @@
 // Variaveis e seleção de elementos
 const apiKey = "86a41a83aad096c8374353b242de9087";
-let j = 0;
-// const apiCountryURL = "https://countryflagsapi.com/png/";
+const apiCountryURL = "https://countryflagsapi.com/png/";
 
 const cityInput = document.querySelector("#city-input");
 const searchBtn = document.querySelector("#search");
@@ -52,6 +51,7 @@ const showWeatherData = async(city) =>{
    // addBgClima(data)
    removeClass();
    cleanInput()
+   console.log(data)
    cityElement.innerText = data.name;
    tempElement.innerHTML = parseInt(data.main.temp);
    descElement.innerText = data.weather[0].description;
@@ -59,10 +59,10 @@ const showWeatherData = async(city) =>{
       "src",
       `https://openweathermap.org/img/wn/${data.weather[0].icon}.png`
    );
-   // countryElement.setAttribute(
-   //    'src',
-   //    apiCountryURL + data.sys.country
-   // )
+   countryElement.setAttribute(
+      'src',
+      apiCountryURL + data.sys.country
+   )
    humidityElement.innerText = `${data.main.humidity}%`;
    windElement.innerText = `${data.wind.speed}km/h`;
 }
@@ -76,18 +76,12 @@ const cleanInput = () => cityInput.value = '';
 
 const toggleLoader = () => loader.classList.toggle("hide");
 
-const addBgClima = (data) =>{
-   if(data.weather[0].description = "nublado"){
-      document.body.style.backgroundImage = "url(../assets/img/ceu-nublado.png)"
-   }
-}
-
 // Tratamento de erros
 const showErrorMenssage = () =>{
    containerError.classList.remove('hide');
    containerBack.classList.remove('hide')
    cleanInput()
-} 
+}
 
 const hideInformations = () =>{
    containerError.classList.add("hide");
