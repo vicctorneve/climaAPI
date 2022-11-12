@@ -123,10 +123,9 @@ suggestionsBtns.forEach( function(btn){
 })
 
 btnBack.addEventListener('click', function(){
-   weatherContainer.classList.add('hide')
+   hideInformations()
    suggestionsContainer.classList.remove('hide')
-   containerError.classList.add('hide')
-   containerBack.classList.add('hide')
+   
 })
 
 
