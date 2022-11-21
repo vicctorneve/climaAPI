@@ -26,5 +26,5 @@ Projeto consumindo uma API publica - [OpenWeathemap](https://openweathermap.org)
 
 - [X] Sugerir cidades padrão
 - [X] Sugerir cidades pesquisadas recentemente
-- [ ] Mudar imagem de acordo com o clima
+- [ ] Mudar background de acordo com o clima
 
