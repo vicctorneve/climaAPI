@@ -37,6 +37,7 @@ const getWeatherData = async(city) =>{
       toggleLoader();
       return data
    } catch (error) {
+      console.log('erro')
       console.error(error)
    }
 }
@@ -124,31 +125,31 @@ btnBack.addEventListener('click', function(){
 
 // LocalStorage
 
-let arrayCitySearchRecents = [];
-let nSearch = 0;
+let arrayLastResearches = [];
+let researchesIndex = 0;
 const getLocalStorage = (key) => JSON.parse(localStorage.getItem(key)) 
 const setLocalStorage = (key,obj) => localStorage.setItem(key, JSON.stringify(obj))
 
 const addCityInArray = (city) =>{
-   nSearch = getLocalStorage('dbIndex') ?? 0
-   arrayCitySearchRecents = getLocalStorage('dbCitys') ?? []
-   let addCity = arrayCitySearchRecents.some((city) => city === cityInput.value)
+   researchesIndex = getLocalStorage('dbIndex') ?? 0
+   arrayLastResearches = getLocalStorage('dbCitys') ?? []
+   let addCity = arrayLastResearches.some((city) => city === cityInput.value)
 
    if(!addCity && cityInput.value !== ''){
-      arrayCitySearchRecents[nSearch] = city;
-      nSearch < 5 ? nSearch++ : nSearch = 0 
+      arrayLastResearches[researchesIndex] = city;
+      researchesIndex < 5 ? researchesIndex++ : researchesIndex = 0 
    }
 
    alteraCityHtml()
 
-   setLocalStorage('dbIndex', nSearch)
-   setLocalStorage('dbCitys', arrayCitySearchRecents)
+   setLocalStorage('dbIndex', researchesIndex)
+   setLocalStorage('dbCitys', arrayLastResearches)
    
 }
 
 const alteraCityHtml = () =>{
-   for (let i = 0; i < arrayCitySearchRecents.length; i++) {
-      suggestionsBtns[i].innerHTML = arrayCitySearchRecents[i] 
+   for (let i = 0; i < arrayLastResearches.length; i++) {
+      suggestionsBtns[i].innerHTML = arrayLastResearches[i] 
    }
 }
 
