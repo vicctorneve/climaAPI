@@ -33,8 +33,13 @@ header{
    box-shadow: rgb(0 0 0 / 24%) 0px 3px 5px;;
 }
 header div{
+   align-items: center;
    gap: 1rem;
    display: flex;
+}
+header .logo-img{
+   width: 32px;
+   height: 32px;
 }
 .container-input{
    width: 80vw;
@@ -126,7 +131,7 @@ main{
    cursor: pointer;
 }
 
-h3 {
+.container .title {
    text-align: center;
    margin-bottom: 1rem;
 }

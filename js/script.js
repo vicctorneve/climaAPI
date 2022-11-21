@@ -48,10 +48,10 @@ const showWeatherData = async(city) =>{
       showErrorMenssage()
       return
    }
-   // addBgClima(data)
+   addCityInArray(data.name)
    removeClass();
    cleanInput()
-   console.log(data)
+   
    cityElement.innerText = data.name;
    tempElement.innerHTML = parseInt(data.main.temp);
    descElement.innerText = data.weather[0].description;
@@ -96,7 +96,6 @@ searchBtn.addEventListener('click', function(e){
    if(cityInput.value !== ""){
       const city = cityInput.value;
       showWeatherData(city);
-      
    }
 })
 
@@ -119,7 +118,41 @@ suggestionsBtns.forEach( function(btn){
 btnBack.addEventListener('click', function(){
    hideInformations()
    suggestionsContainer.classList.remove('hide')
-   
 })
+
+// LocalStorage
+
+let arrayCitySearchRecents = [];
+let nSearch = 0;
+const getLocalStorage = (key) => JSON.parse(localStorage.getItem(key)) 
+const setLocalStorage = (key,obj) => localStorage.setItem(key, JSON.stringify(obj))
+
+const addCityInArray = (city) =>{
+   nSearch = getLocalStorage('dbIndex') ?? 0
+   arrayCitySearchRecents = getLocalStorage('dbCitys') ?? []
+   let addCity = arrayCitySearchRecents.some((city) => city === cityInput.value)
+
+   if(!addCity && cityInput.value !== ''){
+      arrayCitySearchRecents[nSearch] = city;
+      nSearch < 5 ? nSearch++ : nSearch = 0 
+   }
+
+   alteraCityHtml()
+
+   setLocalStorage('dbIndex', nSearch)
+   setLocalStorage('dbCitys', arrayCitySearchRecents)
+   
+}
+
+const alteraCityHtml = () =>{
+   for (let i = 0; i < arrayCitySearchRecents.length; i++) {
+      suggestionsBtns[i].innerHTML = arrayCitySearchRecents[i] 
+   }
+}
+
+addCityInArray()
+
+
+
 
 
