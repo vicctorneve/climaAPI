@@ -34,7 +34,7 @@ const getWeatherData = async(city) =>{
       const res = await fetch(apiWeatherURL);
    
       const data = await res.json();
-      toggleLoader();
+      
       return data
    } catch (error) {
       console.error(error)
@@ -65,6 +65,7 @@ const showWeatherData = async(city) =>{
    )
    humidityElement.innerText = `${data.main.humidity}%`;
    windElement.innerText = `${data.wind.speed}km/h`;
+   toggleLoader();
 }
 
 const removeClass = () => {
@@ -90,6 +91,7 @@ const hideInformations = () =>{
    containerBack.classList.add("hide");
 }
 // Eventos
+
 
 searchBtn.addEventListener('click', function(e){
    e.preventDefault();
