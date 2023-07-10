@@ -20,11 +20,4 @@ Projeto consumindo uma API publica - [OpenWeathemap](https://openweathermap.org)
 - JAVASCRIPT
 - [Biblioteca font-awesome](https://cdnjs.com/libraries/font-awesome)
 
-## Status:
-
-🚀 Projeto sujeito a possiveis atualizações.
-
-- [X] Sugerir cidades padrão
-- [X] Sugerir cidades pesquisadas recentemente
-- [ ] Mudar background de acordo com o clima
 
